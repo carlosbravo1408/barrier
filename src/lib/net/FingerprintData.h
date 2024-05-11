@@ -20,6 +20,7 @@
 
 #include <string>
 #include <vector>
+#include <cstdint>
 
 namespace barrier {
 
@@ -31,7 +32,7 @@ enum FingerprintType {
 
 struct FingerprintData {
     std::string algorithm;
-    std::vector<std::uint8_t> data;
+    std::vector<uint8_t> data;
 
     bool valid() const { return !algorithm.empty(); }
 

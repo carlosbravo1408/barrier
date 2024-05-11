@@ -23,6 +23,7 @@
 
 #include <stdarg.h>
 #include <vector>
+#include <cstdint>
 
 // use standard C++ string class for our string class
 typedef std::string String;
@@ -75,10 +76,10 @@ std::string removeFileExt(std::string filename);
 /*!
 Convert each character in \c subject into hexdecimal form with \c width
 */
-std::string to_hex(const std::vector<std::uint8_t>& subject, int width, const char fill = '0');
+std::string to_hex(const std::vector<uint8_t>& subject, int width, const char fill = '0');
 
 /// Convert binary data from hexadecimal
-std::vector<std::uint8_t> from_hex(const std::string& data);
+std::vector<uint8_t> from_hex(const std::string& data);
 
 //! Convert to all uppercase
 /*!

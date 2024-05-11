@@ -56,6 +56,7 @@
 #include <cstdio>
 #include <cstring>
 #include <stdexcept>
+#include <cstdint>
 
 #if SYSAPI_WIN32
 // Windows builds require a shim that makes it possible to link to different
@@ -133,9 +134,9 @@ FingerprintData get_ssl_cert_fingerprint(X509* cert, FingerprintType type)
                                  std::to_string(result));
     }
 
-    std::vector<std::uint8_t> digest_vec;
-    digest_vec.assign(reinterpret_cast<std::uint8_t*>(digest),
-                      reinterpret_cast<std::uint8_t*>(digest) + digest_length);
+    std::vector<uint8_t> digest_vec;
+    digest_vec.assign(reinterpret_cast<uint8_t*>(digest),
+                      reinterpret_cast<uint8_t*>(digest) + digest_length);
     return {fingerprint_type_to_string(type), digest_vec};
 }
 
@@ -234,7 +235,7 @@ walked in either direction.
 #define	FLDSIZE_Y	(FLDBASE + 1)
 #define	FLDSIZE_X	(FLDBASE * 2 + 1)
 
-std::string create_fingerprint_randomart(const std::vector<std::uint8_t>& dgst_raw)
+std::string create_fingerprint_randomart(const std::vector<uint8_t>& dgst_raw)
 {
     /*
      * Chars to be used after each other every time the worm
@@ -242,7 +243,7 @@ std::string create_fingerprint_randomart(const std::vector<std::uint8_t>& dgst_r
      */
     const char* augmentation_string = " .o+=*BOX@%&#/^SE";
     char *p;
-    std::uint8_t field[FLDSIZE_X][FLDSIZE_Y];
+    uint8_t field[FLDSIZE_X][FLDSIZE_Y];
     std::size_t i;
     std::uint32_t b;
     int	 x, y;

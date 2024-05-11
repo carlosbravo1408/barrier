@@ -31,6 +31,7 @@
 #include <iomanip>
 #include <algorithm>
 #include <cerrno>
+#include <cstdint>
 
 namespace barrier {
 namespace string {
@@ -221,7 +222,7 @@ removeFileExt(std::string filename)
     return filename.substr(0, dot);
 }
 
-std::string to_hex(const std::vector<std::uint8_t>& subject, int width, const char fill)
+std::string to_hex(const std::vector<uint8_t>& subject, int width, const char fill)
 {
     std::stringstream ss;
     ss << std::hex;
@@ -232,9 +233,9 @@ std::string to_hex(const std::vector<std::uint8_t>& subject, int width, const ch
     return ss.str();
 }
 
-std::vector<std::uint8_t> from_hex(const std::string& data)
+std::vector<uint8_t> from_hex(const std::string& data)
 {
-    std::vector<std::uint8_t> result;
+    std::vector<uint8_t> result;
     result.reserve(data.size() / 2);
 
     std::size_t i = 0;

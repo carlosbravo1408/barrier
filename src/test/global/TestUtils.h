@@ -23,7 +23,7 @@
 
 namespace barrier {
 
-std::vector<std::uint8_t> generate_pseudo_random_bytes(std::size_t seed, std::size_t size);
+std::vector<uint8_t> generate_pseudo_random_bytes(std::size_t seed, std::size_t size);
 
 } // namespace barrier
 

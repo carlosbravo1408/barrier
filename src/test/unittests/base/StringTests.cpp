@@ -19,6 +19,8 @@
 
 #include "test/global/gtest.h"
 
+#include <cstdint>
+
 using namespace barrier;
 
 TEST(StringTests, format_formatWithArguments_formatedString)
@@ -56,7 +58,7 @@ TEST(StringTests, sprintf_formatWithArgument_formatedString)
 
 TEST(StringTests, toHex_plaintext_hexString)
 {
-    std::vector<std::uint8_t> subject{'f', 'o', 'o', 'b', 'a', 'r'};
+    std::vector<uint8_t> subject{'f', 'o', 'o', 'b', 'a', 'r'};
     int width = 2;
 
     EXPECT_EQ("666f6f626172", string::to_hex(subject, width));
@@ -66,20 +68,20 @@ TEST(StringTests, fromhex_plaintext_string)
 {
     auto result = string::from_hex("666f6f626172");
     std::string expected = "foobar";
-    EXPECT_EQ(result, std::vector<std::uint8_t>(expected.begin(), expected.end()));
+    EXPECT_EQ(result, std::vector<uint8_t>(expected.begin(), expected.end()));
 }
 
 TEST(StringTests, fromhex_plaintext_string_colons)
 {
     auto result = string::from_hex("66:6f:6f:62:61:72");
     std::string expected = "foobar";
-    EXPECT_EQ(result, std::vector<std::uint8_t>(expected.begin(), expected.end()));
+    EXPECT_EQ(result, std::vector<uint8_t>(expected.begin(), expected.end()));
 }
 
 TEST(StringTests, fromhex_binary_string)
 {
     auto result = string::from_hex("01020304050600fff9");
-    auto expected = std::vector<std::uint8_t>{1, 2, 3, 4, 5, 6, 0, 0xff, 0xf9};
+    auto expected = std::vector<uint8_t>{1, 2, 3, 4, 5, 6, 0, 0xff, 0xf9};
     EXPECT_EQ(result, expected);
 }
 

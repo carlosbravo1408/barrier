@@ -36,7 +36,7 @@
 using SInt8 = std::int8_t;
 using SInt16 = std::int16_t;
 using SInt32 = std::int32_t;
-using UInt8 = std::uint8_t;
+using UInt8 = uint8_t;
 using UInt16 = std::uint16_t;
 using UInt32 = std::uint32_t;
 #endif
